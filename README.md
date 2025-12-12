@@ -47,3 +47,13 @@ python -c "import nltk; nltk.download('punkt'); nltk.download('punkt_tab')"
 ---
 
 ## Run the evaluator
+Run the script with sample inputs:
+```bash
+python eval_pipeline.py -c sample_data/conversation.json -x sample_data/context.json -o out.json
+```
+- The script prints the evaluation and saves results to out.json.
+
+- If out.json is created, the pipeline executed successfully.
+
+## File descriptions
+---
