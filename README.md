@@ -160,3 +160,24 @@ LLM-Evaluation-Pipeline/
 
 Adjust these to suit your trade-off between false positives/negatives and sensitivity.
 --- 
+# Example output 
+
+{
+  "relevance": 0.71,
+  "relevance_flag": "ok",
+  "completeness": 0.33,
+  "completeness_flag": "partial",
+  "hallucination_detected": true,
+  "hallucination_details": [
+    {
+      "sentence": "Common side effects include nausea and allergic reactions.",
+      "max_context_similarity": 0.565,
+      "hallucinated": true
+    }
+  ],
+  "latency_ms": 5869,
+  "estimated_tokens": 74,
+  "estimated_cost_usd": 0.00222
+}
+
+--- 
