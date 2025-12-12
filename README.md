@@ -73,13 +73,20 @@ LLM-Evaluation-Pipeline/
 ---
 **1. Input Loader**
 - Load conversation.json and context.json, extract last user message and assistant response.
+  
 **2. Preprocessing**
+
 - Clean and normalize texts; extract retrieved context snippets.
+  
 **3. Embedding layer**
 - Use Sentence-BERT (all-MiniLM-L6-v2) to create embeddings for:
+  
     - user message
+      
     - assistant response (and its sentences)
+      
     - retrieved context chunks
+      
 **4. Relevance check**
 - Compute cosine similarity between user message and entire assistant response.
 - Report a relevance score (0–1) and a simple flag (ok / low).
