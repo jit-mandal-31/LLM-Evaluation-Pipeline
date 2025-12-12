@@ -88,22 +88,39 @@ LLM-Evaluation-Pipeline/
     - retrieved context chunks
       
 **4. Relevance check**
+
 - Compute cosine similarity between user message and entire assistant response.
-- Report a relevance score (0–1) and a simple flag (ok / low).
+  
+- Report a relevance score (0–1) and a simple flag (ok / low)
+  
 **5. Completeness check**
+
 - Extract keyphrases (spaCy noun-chunks + named entities) from the question.
+  
 - Check fraction present in the assistant response.
+  
 - Provide completeness score and flag (ok / partial).
+  
 **6. Hallucination / factual check**
+
 - Split assistant response into sentences.
+  
 - For each sentence, compute max cosine similarity to any context chunk.
+
 - If max similarity < threshold (default 0.60) → mark sentence as hallucinated.
+  
 - Provide sentence-level details for human inspection.
+  
 **7. Latency & cost estimation**
+
 - Measure wall-clock latency (ms) for evaluation.
+  
 - Estimate token usage using tiktoken if available; fallback heuristic otherwise.
+  
 - Calculate an estimated cost (configurable price per 1k tokens).
+  
 **8. Output**
+
 - Compose JSON containing scores, flags, hallucination details, latency, estimated tokens and cost.
-      
+--- 
   
