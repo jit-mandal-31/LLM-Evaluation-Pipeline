@@ -6,7 +6,7 @@ It fulfills the internship assignment requirements from the uploaded spec. :cont
 ---
 
 ## Overview
-
+---
 The pipeline evaluates LLM responses in real-time across four dimensions:
 
 - **Response Relevance & Completeness**
@@ -24,7 +24,7 @@ Output:
 ---
 
 ## Setup Instructions (Windows / VS Code PowerShell)
-
+---
 1. Clone the repo:
 ```bash
 git clone https://github.com/<your-username>/LLM-Evaluation-Pipeline.git
@@ -47,7 +47,7 @@ python -c "import nltk; nltk.download('punkt'); nltk.download('punkt_tab')"
 ---
 
 ## Run the evaluator
-
+---
 Run the script with sample inputs:
 ```bash
 python eval_pipeline.py -c sample_data/conversation.json -x sample_data/context.json -o out.json
@@ -55,7 +55,7 @@ python eval_pipeline.py -c sample_data/conversation.json -x sample_data/context.
 - The script prints the evaluation and saves results to out.json.
 
 - If out.json is created, the pipeline executed successfully.
-
+---
 ## File descriptions
 ---
 ```bash
@@ -70,7 +70,7 @@ LLM-Evaluation-Pipeline/
 │   └── context.json        # Example retrieved docs input
 └── .gitignore
 ```
-
+---
 ## Pipeline architecture (high-level)
 
 ---
@@ -128,7 +128,7 @@ LLM-Evaluation-Pipeline/
 --- 
 
 ## Why this design?
-
+---
 **Cost-efficient** — *uses a small embedding model (no LLM API calls) so evaluation is inexpensive.*
 
 **Fast & real-time friendly** — *embeddings+cosine similarity are lightweight and parallelizable.*
@@ -140,7 +140,7 @@ LLM-Evaluation-Pipeline/
 ---
 
 ## How this scales
-
+---
 #### 1. Persistent service mode 
 - Run the evaluator as a persistent service (load model once, handle many requests).
 #### 2. Batching & matrix ops
@@ -154,7 +154,7 @@ LLM-Evaluation-Pipeline/
 ---
 
 ## Configurable parameters (in eval_pipeline.py)
-
+---
 - EMBEDDING_MODEL — sentence-transformers model to use
 
 - HALLUCINATION_SIM_THRESHOLD — similarity threshold for sentence support (default 0.60)
@@ -214,7 +214,7 @@ Adjust these to suit your trade-off between false positives/negatives and sensit
 - **Unit tests & CI:** Add tests and GitHub Actions to ensure reproducibility.
   
 
-
+---
 ## Submission checklist
 ---
 -  eval_pipeline.py (working and documented)
@@ -224,7 +224,8 @@ Adjust these to suit your trade-off between false positives/negatives and sensit
  - README.md (this file)
 
  - sample_data/ with example JSONs
-
+   
+---
 ## Author 
 ---
 **Jit Mandal**
