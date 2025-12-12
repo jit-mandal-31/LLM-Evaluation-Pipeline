@@ -136,13 +136,27 @@ LLM-Evaluation-Pipeline/
 ---
 ## How this scales
 
-### 1. Persistent service mode 
+#### 1. Persistent service mode 
 - Run the evaluator as a persistent service (load model once, handle many requests).
-### 2. Batching & matrix ops
+#### 2. Batching & matrix ops
 - Batch multiple texts into a single embedding call and process similarities using matrix multiplication for HPC efficiency.
-### 3. Caching
+#### 3. Caching
 - Cache context embeddings (frequently retrieved docs) to avoid repeated embedding costs.
-### 4. Adaptive checks
+#### 4. Adaptive checks
 - Run lightweight checks for every response; escalate to heavier checks (LLM-based verification) only when needed.
-### 5. Autoscaling
+#### 5. Autoscaling
 - Use worker pools or serverless functions with autoscaling for peak loads.
+---
+
+# Configurable parameters (in eval_pipeline.py)
+
+- EMBEDDING_MODEL — sentence-transformers model to use
+
+- HALLUCINATION_SIM_THRESHOLD — similarity threshold for sentence support (default 0.60)
+
+- RELEVANCE_THRESHOLD — threshold for relevance flag
+
+- PRICE_PER_1K_TOKENS_USD — token price for cost estimation
+
+Adjust these to suit your trade-off between false positives/negatives and sensitivity.
+--- 
