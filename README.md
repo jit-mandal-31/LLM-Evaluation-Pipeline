@@ -57,3 +57,21 @@ python eval_pipeline.py -c sample_data/conversation.json -x sample_data/context.
 
 ## File descriptions
 ---
+```bash
+LLM-Evaluation-Pipeline/
+│
+├── eval_pipeline.py        # Main evaluation script
+├── requirements.txt        # Python dependencies
+├── README.md               # This file
+├── setup_env.ps1           # Windows setup helper (PowerShell)
+├── sample_data/
+│   ├── conversation.json   # Example conversation input
+│   └── context.json        # Example retrieved docs input
+└── .gitignore
+```
+## Pipeline architecture (high-level)
+---
+** 1. Input Loader**
+- Load conversation.json and context.json, extract last user message and assistant response.
+** 2. Preprocessing**
+  
