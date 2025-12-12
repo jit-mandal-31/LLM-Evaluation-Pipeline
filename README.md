@@ -161,23 +161,45 @@ LLM-Evaluation-Pipeline/
 Adjust these to suit your trade-off between false positives/negatives and sensitivity.
 --- 
 # Example output 
-
+```bash
 {
-  "relevance": 0.71,
+  "relevance": 0.7102632522583008,
   "relevance_flag": "ok",
-  "completeness": 0.33,
+  "completeness": 0.3333333333333333,
   "completeness_flag": "partial",
   "hallucination_detected": true,
   "hallucination_details": [
     {
+      "sentence": "Paracetamol is generally safe.",
+      "max_context_similarity": 0.7753779888153076,
+      "hallucinated": false
+    },
+    {
       "sentence": "Common side effects include nausea and allergic reactions.",
-      "max_context_similarity": 0.565,
+      "max_context_similarity": 0.5651089549064636,
       "hallucinated": true
+    },
+    {
+      "sentence": "Overdose can cause liver damage.",
+      "max_context_similarity": 0.697364330291748,
+      "hallucinated": false
     }
   ],
   "latency_ms": 5869,
   "estimated_tokens": 74,
-  "estimated_cost_usd": 0.00222
+  "estimated_cost_usd": 0.0022199999999999998,
+  "meta": {
+    "raw_messages_count": 2
+  }
 }
-
+```
 --- 
+# Notes & improvements
+- **Model warm-start:** For production, keep the embedding model loaded in memory (server mode) to avoid model-loading latency on each call.
+
+- **Better coverage:** Improve retrieval (more/better context) to reduce false hallucination flags.
+
+- **LLM verification:** Optionally call an LLM only for high-risk sentences (costly but more accurate).
+
+- **Unit tests & CI:** Add tests and GitHub Actions to ensure reproducibility.
+---
