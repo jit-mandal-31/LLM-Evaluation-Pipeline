@@ -123,4 +123,27 @@ LLM-Evaluation-Pipeline/
 
 - Compose JSON containing scores, flags, hallucination details, latency, estimated tokens and cost.
 --- 
-  
+## Why this design?
+
+**Cost-efficient** — *uses a small embedding model (no LLM API calls) so evaluation is inexpensive.*
+
+**Fast & real-time friendly** — *embeddings+cosine similarity are lightweight and parallelizable.*
+
+**Interpretable** — *sentence-level hallucination flags give actionable signals for reviewers or automated moderation.*
+
+**Modular** — *components (embedding model, keyphrase extractor, thresholds) are easily swappable.*
+---
+## How this scales
+
+### 1. Persistent service mode 
+
+- Run the evaluator as a persistent service (load model once, handle many requests).
+
+### 2. Batching & matrix ops
+- Batch multiple texts into a single embedding call and process similarities using matrix multiplication for HPC efficiency.
+### 3. Caching
+- Cache context embeddings (frequently retrieved docs) to avoid repeated embedding costs.
+### 4. Adaptive checks
+- Run lightweight checks for every response; escalate to heavier checks (LLM-based verification) only when needed.
+### 5. Autoscaling
+- Use worker pools or serverless functions with autoscaling for peak loads.
