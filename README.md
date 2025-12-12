@@ -1,5 +1,5 @@
 # LLM Evaluation Pipeline
-
+---
 This repository contains a Python-based evaluation system for checking the reliability of LLM-generated responses.  
 It fulfills the internship assignment requirements from the uploaded spec. :contentReference[oaicite:0]{index=0}
 
@@ -164,10 +164,11 @@ LLM-Evaluation-Pipeline/
 - PRICE_PER_1K_TOKENS_USD — token price for cost estimation
 
 Adjust these to suit your trade-off between false positives/negatives and sensitivity.
+
 --- 
 
 ## Example output 
-
+---
 ```bash
 {
   "relevance": 0.7102632522583008,
@@ -203,7 +204,7 @@ Adjust these to suit your trade-off between false positives/negatives and sensit
 --- 
 
 ## Notes & improvements
-
+---
 - **Model warm-start:** For production, keep the embedding model loaded in memory (server mode) to avoid model-loading latency on each call.
 
 - **Better coverage:** Improve retrieval (more/better context) to reduce false hallucination flags.
@@ -211,9 +212,11 @@ Adjust these to suit your trade-off between false positives/negatives and sensit
 - **LLM verification:** Optionally call an LLM only for high-risk sentences (costly but more accurate).
 
 - **Unit tests & CI:** Add tests and GitHub Actions to ensure reproducibility.
----
-## Submission checklist
+  
 
+
+## Submission checklist
+---
 -  eval_pipeline.py (working and documented)
 
  - requirements.txt
@@ -223,6 +226,7 @@ Adjust these to suit your trade-off between false positives/negatives and sensit
  - sample_data/ with example JSONs
 
 ## Author 
+---
 **Jit Mandal**
 
 
