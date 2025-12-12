@@ -1,0 +1,6 @@
+{
+  "messages": [
+    {"role": "user", "text": "What are the side effects of paracetamol?"},
+    {"role": "assistant", "text": "Paracetamol is generally safe. Common side effects include nausea and allergic reactions. Overdose can cause liver damage."}
+  ]
+}
