@@ -132,13 +132,12 @@ LLM-Evaluation-Pipeline/
 **Interpretable** — *sentence-level hallucination flags give actionable signals for reviewers or automated moderation.*
 
 **Modular** — *components (embedding model, keyphrase extractor, thresholds) are easily swappable.*
+
 ---
 ## How this scales
 
 ### 1. Persistent service mode 
-
 - Run the evaluator as a persistent service (load model once, handle many requests).
-
 ### 2. Batching & matrix ops
 - Batch multiple texts into a single embedding call and process similarities using matrix multiplication for HPC efficiency.
 ### 3. Caching
