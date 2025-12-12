@@ -71,7 +71,7 @@ LLM-Evaluation-Pipeline/
 ```
 ## Pipeline architecture (high-level)
 ---
-** 1. Input Loader**
+** 1. Input Loader **
 - Load conversation.json and context.json, extract last user message and assistant response.
 ** 2. Preprocessing**
   
