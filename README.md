@@ -69,7 +69,9 @@ LLM-Evaluation-Pipeline/
 │   └── context.json        # Example retrieved docs input
 └── .gitignore
 ```
+
 ## Pipeline architecture (high-level)
+
 ---
 ### **1. Input Loader**
 - Load conversation.json and context.json, extract last user message and assistant response.
@@ -161,6 +163,7 @@ LLM-Evaluation-Pipeline/
 Adjust these to suit your trade-off between false positives/negatives and sensitivity.
 --- 
 # Example output 
+
 ```bash
 {
   "relevance": 0.7102632522583008,
@@ -195,6 +198,7 @@ Adjust these to suit your trade-off between false positives/negatives and sensit
 ```
 --- 
 # Notes & improvements
+
 - **Model warm-start:** For production, keep the embedding model loaded in memory (server mode) to avoid model-loading latency on each call.
 
 - **Better coverage:** Improve retrieval (more/better context) to reduce false hallucination flags.
