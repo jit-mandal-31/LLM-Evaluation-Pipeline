@@ -47,6 +47,7 @@ python -c "import nltk; nltk.download('punkt'); nltk.download('punkt_tab')"
 ---
 
 ## Run the evaluator
+
 Run the script with sample inputs:
 ```bash
 python eval_pipeline.py -c sample_data/conversation.json -x sample_data/context.json -o out.json
@@ -125,6 +126,7 @@ LLM-Evaluation-Pipeline/
 
 - Compose JSON containing scores, flags, hallucination details, latency, estimated tokens and cost.
 --- 
+
 ## Why this design?
 
 **Cost-efficient** — *uses a small embedding model (no LLM API calls) so evaluation is inexpensive.*
@@ -136,6 +138,7 @@ LLM-Evaluation-Pipeline/
 **Modular** — *components (embedding model, keyphrase extractor, thresholds) are easily swappable.*
 
 ---
+
 ## How this scales
 
 #### 1. Persistent service mode 
@@ -150,7 +153,7 @@ LLM-Evaluation-Pipeline/
 - Use worker pools or serverless functions with autoscaling for peak loads.
 ---
 
-# Configurable parameters (in eval_pipeline.py)
+## Configurable parameters (in eval_pipeline.py)
 
 - EMBEDDING_MODEL — sentence-transformers model to use
 
@@ -162,7 +165,8 @@ LLM-Evaluation-Pipeline/
 
 Adjust these to suit your trade-off between false positives/negatives and sensitivity.
 --- 
-# Example output 
+
+## Example output 
 
 ```bash
 {
@@ -197,7 +201,8 @@ Adjust these to suit your trade-off between false positives/negatives and sensit
 }
 ```
 --- 
-# Notes & improvements
+
+## Notes & improvements
 
 - **Model warm-start:** For production, keep the embedding model loaded in memory (server mode) to avoid model-loading latency on each call.
 
@@ -207,3 +212,19 @@ Adjust these to suit your trade-off between false positives/negatives and sensit
 
 - **Unit tests & CI:** Add tests and GitHub Actions to ensure reproducibility.
 ---
+## Submission checklist
+
+-  eval_pipeline.py (working and documented)
+
+ - requirements.txt
+
+ - README.md (this file)
+
+ - sample_data/ with example JSONs
+
+## Author 
+**Jit Mandal**
+
+
+
+
