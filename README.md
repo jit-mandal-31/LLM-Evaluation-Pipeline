@@ -29,3 +29,18 @@ Output:
 ```bash
 git clone https://github.com/<your-username>/LLM-Evaluation-Pipeline.git
 cd LLM-Evaluation-Pipeline
+```
+2. Create and active the virtual environment:
+```bash
+python -m venv venv
+.\venv\Scripts\Activate.ps1
+```
+3. Install dependencies:
+```bash
+pip install -r requirements.txt
+```
+4. Download required NLP models/resources:
+```bash
+python -m spacy download en_core_web_sm
+python -c "import nltk; nltk.download('punkt'); nltk.download('punkt_tab')"
+```
